@@ -20,6 +20,8 @@ namespace Heroes.API
 
             var app = builder.Build();
 
+            app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
+
             using (var scope = app.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
